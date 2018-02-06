@@ -20,6 +20,9 @@ Simple Apache based storage system with cgi upload.
  
 If STORAGE_USER or/and STORAGE_PASS not set, no security is setup.
 
+## Build image
+run docker_build.sh
+
 ## Usage
 ```
     docker run --rm \
