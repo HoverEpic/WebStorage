@@ -1,0 +1,29 @@
+AuthName "Secured area, please login !"
+AuthType Basic
+AuthUserFile "/var/www/.htpasswd"
+Require valid-user
+RewriteBase /*
+RewriteOptions InheritDown
+# CHANGE DEFAULT PAGE
+DirectoryIndex index.html
+# ENABLE DIRECTORY VIEWS
+Options +Indexes
+# STRONG HTACCESS PROTECTION
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+    order allow,deny
+    deny from all
+</Files>
+# SET INDEX OPTIONS
+IndexOptions IgnoreCase FancyIndexing FoldersFirst NameWidth=* DescriptionWidth=* SuppressHTMLPreamble
+# SET DISPLAY ORDER
+IndexOrderDefault Ascending Name
+# SPECIFY HEADER FILE
+HeaderName /header.html
+# SPECIFY FOOTER FILE
+ReadmeName /footer.html
+# IGNORE THESE FILES
+IndexIgnore /header.html /footer.html /upload.html /localhost
+
+# set correct mimes types
+AddDefaultCharset utf-8
+AddType 'application/json; charset=UTF-8' .version
